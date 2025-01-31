@@ -132,7 +132,7 @@ public class DailyTask implements Task {
      * @Time 2020-10-13
      */
     public JSONObject getReward() {
-        return Request.get("https://account.bilibili.com/home/reward").getJSONObject("data");
+        return Request.get("https://api.bilibili.com/x/member/web/exp/reward").getJSONObject("data");
     }
 
     /**
