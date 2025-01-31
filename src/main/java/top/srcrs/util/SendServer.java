@@ -40,7 +40,7 @@ public class SendServer {
 
         HttpUriRequest httpPost = RequestBuilder.post()
                                                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
-                                                .setUri("https://sc.ftqq.com/" + sckey + ".send")
+                                                .setUri("https://sctapi.ftqq.com/" + sckey + ".send")
                                                 .addParameters(Request.getPairList(pJson))
                                                 .build();
 
