@@ -137,7 +137,7 @@ public class ThrowCoinTask implements Task {
      */
     public Integer getReward() {
         JSONObject jsonObject = Request.get("https://api.bilibili.com/x/member/web/exp/reward");
-        return Integer.parseInt(jsonObject.getJSONObject("data").getString("coins_av"));
+        return Integer.parseInt(jsonObject.getJSONObject("data").getString("coins"));
     }
 
     /**
