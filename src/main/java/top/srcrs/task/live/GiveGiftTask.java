@@ -36,7 +36,11 @@ public class GiveGiftTask implements Task {
             /* 获得礼物列表 */
             JSONArray jsonArray = xliveGiftBagList();
             /* 判断是否有过期礼物出现 */
-            boolean flag = true;
+            boolean flag = !jsonArray.isEmpty();
+            if(flag) {
+                log.info("【送即将过期礼物】: " + "当前无即将过期礼物❌");
+                return;
+            }
             for(Object object : jsonArray){
                 JSONObject json = (JSONObject) object;
                 long expireAt = Long.parseLong(json.getString("expire_at"));
@@ -68,9 +72,6 @@ public class GiveGiftTask implements Task {
                         log.warn("【送即将过期礼物】: 失败, 原因 : {}❌", jsonObject3);
                     }
                 }
-            }
-            if(flag){
-                log.info("【送即将过期礼物】: " + "当前无即将过期礼物❌");
             }
         } catch (Exception e){
             log.error("💔赠送礼物异常 : ", e);

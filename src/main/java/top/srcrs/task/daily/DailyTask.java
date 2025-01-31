@@ -55,6 +55,8 @@ public class DailyTask implements Task {
                 log.info("【分享视频】: " + "今日已经分享过视频❌");
             } else {
                 JSONObject share = share(regions.getJSONObject(5).getString("aid"));
+                log.info(share.getString("code"));
+                log.info(regions.getJSONObject(5).getString("aid"));
                 log.info("【分享视频】: {}", "0".equals(share.getString("code")) ? "成功✔" : "失败❌");
             }
         } catch (Exception e) {
